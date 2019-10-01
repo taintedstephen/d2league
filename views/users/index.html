@@ -1,0 +1,30 @@
+<div class="page-title">
+	<h1>Users</h1>
+	<a href="/users/new" class="button">New User</a>
+</div>
+<div class="table">
+	<table class="table">
+		<thead>
+			<th>Username</th>
+			<th>Edit</th>
+			<th>Delete</th>
+		</thead>
+		<tbody>
+			{{#users}}
+			<tr>
+				<td data-label="Username">{{ username }}</td>
+				<td>
+					<a href="/users/edit/{{_id}}" class="button">Edit</a>
+				</td>
+				<td>
+					<form action="/users/remove" method="post" onsubmit="return confirm('Are you sure?')">
+						{{> token}}
+						<input type="hidden" name="id" value="{{_id}}" />
+						<button class="button">Delete</button>
+					</form>
+				</td>
+			</tr>
+			{{/users}}
+		</tbody>
+	</table>
+</div>

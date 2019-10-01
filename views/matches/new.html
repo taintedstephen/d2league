@@ -1,0 +1,41 @@
+<div class="page-title">
+	<h1>New Result</h1>
+</div>
+<div class="page-form">
+	<form action="/players/create">
+		{{> token }}
+		<div class="field">
+			<label for="homePlayer">Player (Home)</label>
+			<span class="select" data-init="|{{homePlayer}}">
+				<span class="select-value">Select a player...</span>
+				<select name="homePlayer">
+					{{#players}}
+						<option value="{{_id}}">{{ psn }}</option>
+					{{/players}}
+				</select>
+			</span>
+		</div>
+		<div class="field">
+			<label for="homeScore">Score (Home)</label>
+			<input name="homeScore" type="number" min="0" max="25" step="1" value="{{homeScore}}" />
+		</div>
+		<div class="field">
+			<label for="awayPlayer">Player (Away)</label>
+			<span class="select" data-init="|{{awayPlayer}}}">
+				<span class="select-value">Select a player...</span>
+				<select name="awayPlayer">
+					{{#players}}
+						<option value="{{_id}}">{{ psn }}</option>
+					{{/players}}
+				</select>
+			<span>
+		</div>
+		<div class="field">
+			<label for="awayScore">Score (Away)</label>
+			<input name="awayScore" type="number" min="0" max="25" step="1" value="{{awayScore}}" />
+		</div>
+		<div class="field">
+			<button class="button">Add Result</button>
+		</div>
+	</form>
+</div>

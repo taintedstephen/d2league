@@ -1,0 +1,36 @@
+<div class="page-title">
+	<h1>Results</h1>
+	<a href="/results/new" class="button">New Result</a>
+</div>
+<div class="table">
+	<table class="table">
+		<thead>
+			<th>Date</th>
+			<th>Player (Home)</th>
+			<th>Player (Away)</th>
+			<th>Result</th>
+			<th>Edit</th>
+			<th>Delete</th>
+		</thead>
+		<tbody>
+			{{#results}}
+			<tr>
+				<td data-label="Date">{{ date }}</td>
+				<td data-label="Player (Home)">{{ playerHome.psn }}</td>
+				<td data-label="Player (Away)">{{ playerAway.psn }}</td>
+				<td data-label="Result">{{ homeScore }}:{{ awayScore }}</td>
+				<td>
+					<a href="/results/edit/{{_id}}" class="button">Edit</a>
+				</td>
+				<td>
+					<form action="/results/remove" method="post" onsubmit="return confirm('Are you sure?')">
+						{{> token}}
+						<input type="hidden" name="id" value="{{_id}}" />
+						<button class="button">Delete</button>
+					</form>
+				</td>
+			</tr>
+			{{/results}}
+		</tbody>
+	</table>
+</div>

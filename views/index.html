@@ -1,0 +1,48 @@
+<nav class="mobile-nav">
+	<span class="mobile-nav-button mobile-nav-button--active" data-target="">Points</span>
+	<span class="mobile-nav-button" data-target="body--kd">K:D</span>
+	<span class="mobile-nav-button" data-target="body--wdl">W:D:L</span>
+	<span class="mobile-nav-button" data-target="body--form">Form</span>
+</nav>
+<div class="league-table">
+	<table class="data-table" id="myTable">
+		<thead>
+			<tr>
+				<th class="th-rank">#</th>
+				<th class="th-name">Name</th>
+				<th class="th-wins">W</th>
+				<th class="th-draws">D</th>
+				<th class="th-losses">L</th>
+				<th class="th-kills">Kills</th>
+				<th class="th-deaths">Deaths</th>
+				<th class="th-kd">K:D</th>
+				<th class="th-form">Form</th>
+				<th class="th-points">PTS</th>
+			</tr>
+		</thead>
+		<tbody>
+			{{#table}}
+				<tr class="tr-rank-{{ rank }}">
+					<td class="td-rank">{{ rank }}</td>
+					<td class="td-name">{{ psn }}</td>
+					<td class="td-wins">{{ won }}</td>
+					<td class="td-draws">{{ drawn }}</td>
+					<td class="td-losses">{{ lost }}</td>
+					<td class="td-kills">{{ kills }}</td>
+					<td class="td-deaths">{{ deaths }}</td>
+					<td class="td-kd">{{ diff }}</td>
+					<td class="td-form">
+						<div class="form"><!-- TO DO -->
+							<span class="form-w">W</span>
+							<span class="form-w">W</span>
+							<span class="form-w">W</span>
+							<span class="form-w">W</span>
+							<span class="form-w">W</span>
+						</div>
+					</td>
+					<td class="td-points">{{ points }}</td>
+				</tr>
+			{{/table}}
+		</tbody>
+	</table>
+</div>

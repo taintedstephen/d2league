@@ -1,0 +1,15 @@
+<div class="page-title">Log In</div>
+<form action="/users/login" method="post">
+	{{ >token }}
+	<div class="field">
+		<label for="username">Username</label>
+		<input type="text" name="username" />
+	</div>
+	<div class="field">
+		<label for="password">Password</label>
+		<input type="password" name="password" />
+	</div>
+	<div class="field">
+		<button class="button">Log In</button>
+	</div>
+</form>
