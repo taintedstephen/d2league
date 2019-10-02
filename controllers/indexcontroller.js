@@ -50,6 +50,12 @@ exports.fixtures = (req, res, next) => {
 		.catch(err => next(err));
 };
 
+exports.rules = (req, res) => {
+	res.render('rules', {
+		title: 'Rules',
+	});
+};
+
 exports.login = (req, res) => {
 	res.render('users/login', {
 		title: 'Login',
