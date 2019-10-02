@@ -1,0 +1,45 @@
+<div class="content-page">
+	<div class="page-title">
+		<h1>Fixtures</h1>
+	</div>
+	{{#fixtures}}
+		<div class="fixture-week">
+			<div class="fixture-week__week">
+				<b>Week {{week}}</b>
+			</div>
+			{{#fixtures}}
+				<div class="fixture">
+					<div class="fixture-player{{homePlayerClass}}">
+						{{ homePlayer.psn }}
+						{{{ homeScoreHtml }}}
+					</div>
+					<div class="fixture-vs">vs</div>
+					<div class="fixture-player{{awayPlayerClass}}">
+						{{{ awayScoreHtml }}}
+						{{ awayPlayer.psn }}
+					</div>
+					{{{ noteHtml }}}
+					{{#showResultButton}}
+						<a href="/results/add/{{_id}}" class="mini-button">Add result</a>
+					{{/showResultButton}}
+
+					{{#showEditButton}}
+						<a href="/results/edit/{{_id}}" class="mini-button">&nbsp;Edit&nbsp;</a>
+					{{/showEditButton}}
+				</div>
+			{{/fixtures}}
+		</div>
+	{{/fixtures}}
+	{{^fixtures}}
+		<p>No matches scheduled.</p>
+		<p>
+			<a href="/results/generate" class="button">Genrate Schedule</a>
+		</p>
+	{{/fixtures}}
+
+	<p><br />This button is nuclear. Don't use it.</p>
+	<form action="/results/clear" method="post" onsubmit="return confirm('Really delete all fixtures and results?!..')">
+		{{> token }}
+		<button class="button">Clear all fixtures</button>
+	</form>
+</div>

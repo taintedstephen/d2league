@@ -3,7 +3,7 @@ const User = Promise.promisifyAll(require('../models/user'));
 
 exports.login = (req, res) => {
 	if (req.isAuthenticated()) {
-		res.redirect('/admin');
+		res.redirect('/');
 	} else {
 		res.render('users/login', {
 			title: 'Log In',
@@ -108,7 +108,7 @@ exports.update = (req, res, next) => {
 			username,
 			password,
 		};
-		
+
 		User.updateUserAsync(id, userData)
 			.then(() => {
 				req.flash('success', 'User Updated');

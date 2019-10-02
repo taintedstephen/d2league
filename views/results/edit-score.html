@@ -1,0 +1,34 @@
+<div class="content-page">
+	<div class="page-title">
+		<h1>Edit Result</h1>
+	</div>
+	<div class="page-form">
+		<form action="/results/save-result" method="post">
+			{{> token }}
+			<input type="hidden" name="id" value="{{ match._id }}" />
+			<div class="field">
+				<label for="homeScore">Home Score for {{ match.homePlayer.psn }}</label>
+				<input type="number" value="{{ match.homeScore }}" min="0" max="25" step="1" name="homeScore" />
+			</div>
+			<div class="field">
+				<label for="awayScore">Away Score for {{ match.awayPlayer.psn }}</label>
+				<input type="number" value="{{ match.awayScore }}" min="0" max="25" step="1" name="awayScore" />
+			</div>
+			<div class="field">
+				<label for="outcome">Outcome</label>
+				<span class="select" data-init="{{ match.outcome }}">
+					<span class="select-label">Normal Result</span>
+					<select name="outcome">
+						<option value="normal">Normal Result</option>
+						<option value="home_forfeit">Home Player Forfeit</option>
+						<option value="away_forfeit">Away Player Forfeit</option>
+						<option value="both_forfeit">Both Players Forfeit</option>
+					</select>
+				</span>
+			</div>
+			<div class="field">
+				<button class="button">Save Result</button>
+			</div>
+		</form>
+	</div>
+</div>

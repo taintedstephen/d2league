@@ -1,0 +1,32 @@
+<div class="content-page">
+	<div class="page-title">
+		<h1>Genrated Fixtures</h1>
+	</div>
+	{{#weeks}}
+		<div class="fixture-week">
+			<div class="fixture-week__week">
+				<b>Week {{week}}</b>
+			</div>
+			{{#fixtures}}
+				<div class="fixture">
+					<div class="fixture-player">
+						{{ homePlayer.psn }}
+					</div>
+					<div class="fixture-vs">vs</div>
+					<div class="fixture-player">
+						{{ awayPlayer.psn }}
+					</div>
+				</div>
+			{{/fixtures}}
+		</div>
+	{{/weeks}}
+	<p>Happy with the fixtures?</p>
+	<form action="/results/save-schedule" method="post">
+		{{> token }}
+		<input type="hidden" name="weeksEncoded" value="{{ weeksEncoded }}" />
+		<button class="button">Save Schedule</button>
+	</form>
+
+	<p><br />Not happy with the list?</p>
+	<a href="/results/generate" class="button">Re-Generate Schedule</a>
+</div>

@@ -1,84 +1,31 @@
-<div class="fixture-week">
-	<div class="fixture-week__week">
-		<b>Week 1:</b> 25/10 to 28/10
+{{#fixtures}}
+	<div class="fixture-week">
+		<div class="fixture-week__week">
+			<b>Week {{week}}</b>
+		</div>
+		{{#fixtures}}
+			<div class="fixture">
+				<div class="fixture-player{{homePlayerClass}}">
+					{{ homePlayer.psn }}
+					{{{ homeScoreHtml }}}
+				</div>
+				<div class="fixture-vs">vs</div>
+				<div class="fixture-player{{awayPlayerClass}}">
+					{{{ awayScoreHtml }}}
+					{{ awayPlayer.psn }}
+				</div>
+				{{{ noteHtml }}}
+				{{#showResultButton}}
+					<a href="/results/add/{{_id}}" class="mini-button">Add result</a>
+				{{/showResultButton}}
+
+				{{#showEditButton}}
+					<a href="/results/edit/{{_id}}" class="mini-button">&nbsp;Edit&nbsp;</a>
+				{{/showEditButton}}
+			</div>
+		{{/fixtures}}
 	</div>
-	<div class="fixture">
-		<div class="fixture-player">
-			Player 1
-		</div>
-		<div class="fixture-vs">vs</div>
-		<div class="fixture-player">
-			Player 2
-		</div>
-	</div>
-	<div class="fixture">
-		<div class="fixture-player fixture-player--winner">
-			Player 1 <span class="fixture-score">25</span>
-		</div>
-		<div class="fixture-vs">vs</div>
-		<div class="fixture-player fixture-player--loser">
-			<span class="fixture-score">0</span> Player 2
-		</div>
-	</div>
-	<div class="fixture">
-		<div class="fixture-player fixture-player--winner">
-			Karloosethemoose <span class="fixture-score">0</span>
-		</div>
-		<div class="fixture-vs">vs</div>
-		<div class="fixture-player fixture-player--loser">
-			<span class="fixture-score">0</span> Karloosethemoose
-		</div>
-		<div class="fixture-outcome">Player 1 wins by forfeit</div>
-	</div>
-	<div class="fixture">
-		<div class="fixture-player fixture-player--loser">
-			Player 1 <span class="fixture-score">0</span>
-		</div>
-		<div class="fixture-vs">vs</div>
-		<div class="fixture-player fixture-player--winner">
-			<span class="fixture-score">10</span> Player 2
-		</div>
-	</div>
-</div>
-<div class="fixture-week">
-	<div class="fixture-week__week">
-		<b>Week 2:</b> 30/10 to 4/11
-	</div>
-	<div class="fixture">
-		<div class="fixture-player">
-			Player 1
-		</div>
-		<div class="fixture-vs">vs</div>
-		<div class="fixture-player">
-			Player 2
-		</div>
-	</div>
-	<div class="fixture">
-		<div class="fixture-player fixture-player--winner">
-			Player 1 <span class="fixture-score">25</span>
-		</div>
-		<div class="fixture-vs">vs</div>
-		<div class="fixture-player fixture-player--loser">
-			<span class="fixture-score">0</span> Player 2
-		</div>
-	</div>
-	<div class="fixture">
-		<div class="fixture-player fixture-player--winner">
-			Player 1 <span class="fixture-score">0</span>
-		</div>
-		<div class="fixture-vs">vs</div>
-		<div class="fixture-player fixture-player--loser">
-			<span class="fixture-score">0</span> Player 2
-		</div>
-		<div class="fixture-outcome">Player 1 wins by forfeit</div>
-	</div>
-	<div class="fixture">
-		<div class="fixture-player fixture-player--loser">
-			Player 1 <span class="fixture-score">0</span>
-		</div>
-		<div class="fixture-vs">vs</div>
-		<div class="fixture-player fixture-player--winner">
-			<span class="fixture-score">10</span> Player 2
-		</div>
-	</div>
-</div>
+{{/fixtures}}
+{{^fixtures}}
+	<p>No matches scheduled yet.</p>
+{{/fixtures}}
