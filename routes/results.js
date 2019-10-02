@@ -5,9 +5,6 @@ const { ensureAuthenticated } = require('../lib/auth');
 
 router.all('*', ensureAuthenticated);
 router.get('/', ResultController.index);
-router.get('/new', ResultController.new);
-router.post('/create', ResultController.create);
-router.get('/edit/:id', ResultController.edit);
-router.post('/update', ResultController.update);
+router.get('/genrate', ResultController.generate);
 
 module.exports = router;

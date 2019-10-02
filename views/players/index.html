@@ -1,9 +1,12 @@
-<div class="page-title">
-	<h1>Players</h1>
-	<a href="/players/new" class="button">New Player</a>
+<div class="content-page">
+	<div class="page-title">
+		<h1>Players</h1>
+		<a href="/players/new" class="button">New Player</a>
+	</div>
+	<p>Add and edit the players who take part</p>
 </div>
 <div class="table">
-	<table class="table">
+	<table class="data-table" id="myTable">
 		<thead>
 			<th>PSN</th>
 			<th>Name</th>
@@ -30,3 +33,14 @@
 		</tbody>
 	</table>
 </div>
+
+<script type="text/javascript">
+	$(document).ready( function () {
+		$('#myTable').DataTable({
+			paging: false,
+			searching: false,
+			info: false,
+			responsive: true,
+		});
+	});
+</script>

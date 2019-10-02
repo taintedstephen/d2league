@@ -990,3 +990,106 @@ table.dataTable td {
 		margin-top: 0.5em;
 	}
 }
+
+#messages ul {
+	margin: 2px 0 0 0;
+	padding: 1rem 1rem 0.5rem;
+	color: #ffffff;
+	list-style: none;
+}
+
+#messages ul.success {
+	background-color: #29c63d;
+}
+
+#messages ul.error {
+	background-color: #c62b29;
+}
+
+#messages ul li {
+	display: block;
+	padding: 0 0 0.5rem;
+}
+
+.content-page {
+	display: block;
+	padding: 30px;
+	background-color: rgba(0,0,0,0.5);
+	margin-top: 2px;
+	color: #ffffff;
+}
+
+.content-page p:last-child {
+	margin-bottom: 0;
+}
+
+.page-title {
+	display: flex;
+	flex-direction: row;
+	justify-content: space-between;
+	align-items: center;
+	padding: 0 0 0.5rem;
+}
+
+.page-title h1 {
+	margin: 0;
+}
+
+
+.field {
+	display: block;
+	max-width: 400px;
+	padding: 0 0 1rem;
+}
+
+.field label {
+	display: block;
+	text-transform: uppercase;
+	padding: 0 0 0.5rem;
+}
+
+.field input[type="text"],
+.field input[type="email"],
+.field input[type="password"] {
+	width: 100%;
+	background: #ffffff;
+	border: 0;
+	padding: 0.5rem;
+	font-size: 16px;
+	line-height: 1.4;
+	color: #231f20;
+	font-family: 'Source Sans Pro', sans-serif;
+	appearance: none;
+	-webkit-appearance: none;
+	-moz-appearance: none;
+	-ms-appearance: none;
+	-o-appearance: none;
+}
+
+.field input[type="submit"],
+button,
+.button {
+	display: inline-block;
+	padding: 0.5rem 2rem;
+	background-color: #c62b29;
+	color: #ffffff;
+	border: 0;
+	appearance: none;
+	-webkit-appearance: none;
+	-moz-appearance: none;
+	-ms-appearance: none;
+	-o-appearance: none;
+	font-family: 'Source Sans Pro', sans-serif;
+	font-size: 16px;
+	line-height: 1.4;
+	text-transform: uppercase;
+	transition: background-color 0.25s;
+	cursor: pointer;
+	text-decoration: none;
+}
+
+.field input[type="submit"]:hover,
+button:hover,
+.button:hover {
+	background-color: #000000;
+}

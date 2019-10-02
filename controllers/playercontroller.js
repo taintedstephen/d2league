@@ -40,7 +40,7 @@ exports.create = (req, res, next) => {
 			psn,
 			name,
 		});
-		Player.createPlayerAsync(newPlayer)
+		newPlayer.save()
 			.then(() => {
 				req.flash('success', 'Player Created');
 				res.redirect('/players');
@@ -97,7 +97,7 @@ exports.update = (req, res, next) => {
 };
 
 exports.destroy = (req, res, next) => {
-	const { id } = req.params;
+	const { id } = req.body;
 	Player.findByIdAndUpdate(id, { deleted: true })
 		.then(() => {
 			req.flash('success', 'Player Deleted');

@@ -9,6 +9,6 @@ router.get('/new', PlayerController.new);
 router.post('/create', PlayerController.create);
 router.get('/edit/:id', PlayerController.edit);
 router.post('/update', PlayerController.update);
-router.get('/destroy/:id', PlayerController.destroy);
+router.post('/remove', PlayerController.destroy);
 
 module.exports = router;

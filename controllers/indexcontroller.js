@@ -1,13 +1,12 @@
 const Promise = require('bluebird');
 const Player = require('../models/player');
-const Result = require('../models/result');
+const Match = require('../models/match');
 
 exports.index = (req, res, next) => {
 	Promise.all([
 		Player.find({})
 			.lean(),
-		Result.find({})
-			.sort('-resultDate')
+		Match.find({ hasResult: true })
 			.lean(),
 	])
 		.spread((players, results) => {

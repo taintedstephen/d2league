@@ -16,7 +16,7 @@ passport.deserializeUser((id, done) => {
 });
 
 passport.use(new LocalStrategy((username, password, done) => {
-	User.find({ username })
+	User.findOne({ username })
 		.then((user) => {
 			if (!user) {
 				return done(null, false, { message: 'Unknown User' });
@@ -36,17 +36,16 @@ passport.use(new LocalStrategy((username, password, done) => {
 }));
 
 router.post('/login', passport.authenticate('local', {
-	failureRedirect: '/',
-	failureFlash: 'Invalid Username or Password',
-}), UserController.login);
+	failureRedirect: '/login',
+	failureFlash: true,
+}), UserController.postLogin);
 
 router.post('/logout', UserController.logout);
 
-router.all('*', ensureAuthenticated);
-router.get('/', UserController.index);
-router.get('/new', UserController.new);
-router.post('/create', UserController.create);
-router.get('/edit/:id', UserController.edit);
-router.post('/update', UserController.update);
+router.get('/', ensureAuthenticated, UserController.index);
+router.get('/new', ensureAuthenticated, UserController.new);
+router.post('/create', ensureAuthenticated, UserController.create);
+router.get('/edit/:id', ensureAuthenticated, UserController.edit);
+router.post('/update', ensureAuthenticated, UserController.update);
 
 module.exports = router;

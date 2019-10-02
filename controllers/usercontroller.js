@@ -2,7 +2,18 @@ const Promise = require('bluebird');
 const User = Promise.promisifyAll(require('../models/user'));
 
 exports.login = (req, res) => {
-	res.redirect('/admin');
+	if (req.isAuthenticated()) {
+		res.redirect('/admin');
+	} else {
+		res.render('users/login', {
+			title: 'Log In',
+		});
+	}
+};
+
+exports.postLogin = (req, res) => {
+	req.flash('success', 'You are logged in');
+	res.redirect('/');
 };
 
 exports.logout = (req, res) => {

@@ -45,4 +45,24 @@
 			{{/table}}
 		</tbody>
 	</table>
+
+	<script type="text/javascript">
+		$(document).ready( function () {
+		    $('#myTable').DataTable({
+				paging: false,
+				searching: false,
+				info: false,
+				responsive: true,
+			});
+
+			$(".mobile-nav-button").on("click", function() {
+				if (!$(this).hasClass("mobile-nav-button--active")) {
+					$(".mobile-nav-button--active").removeClass("mobile-nav-button--active");
+					$(this).addClass("mobile-nav-button--active");
+					$("body").removeClass("body--kd body--wdl body--form");
+					$("body").addClass($(this).data("target"));
+				}
+			})
+		});
+	</script>
 </div>

@@ -18,6 +18,10 @@ const MatchSchema = mongoose.Schema({
 	outcome: {
 		type: String,
 	},
+	hasResult: {
+		type: Boolean,
+		default: false,
+	},
 	matchWeek: {
 		type: Number,
 	},
