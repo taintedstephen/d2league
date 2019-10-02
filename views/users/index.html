@@ -1,9 +1,12 @@
-<div class="page-title">
-	<h1>Users</h1>
-	<a href="/users/new" class="button">New User</a>
+<div class="content-page">
+	<div class="page-title">
+		<h1>Users</h1>
+		<a href="/users/new" class="button">New User</a>
+	</div>
+	<p>Manage the admin users who can edit players and results.</p>
 </div>
 <div class="table">
-	<table class="table">
+	<table class="data-table" id="myTable">
 		<thead>
 			<th>Username</th>
 			<th>Edit</th>
@@ -28,3 +31,14 @@
 		</tbody>
 	</table>
 </div>
+
+<script type="text/javascript">
+	$(document).ready( function () {
+		$('#myTable').DataTable({
+			paging: false,
+			searching: false,
+			info: false,
+			responsive: true,
+		});
+	});
+</script>

@@ -47,5 +47,6 @@ router.get('/new', ensureAuthenticated, UserController.new);
 router.post('/create', ensureAuthenticated, UserController.create);
 router.get('/edit/:id', ensureAuthenticated, UserController.edit);
 router.post('/update', ensureAuthenticated, UserController.update);
+router.post('/remove', ensureAuthenticated, UserController.destroy);
 
 module.exports = router;

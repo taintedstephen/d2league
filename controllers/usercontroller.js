@@ -93,7 +93,6 @@ exports.update = (req, res, next) => {
 	} = req.body;
 
 	req.checkBody('username', 'Email field is required').notEmpty();
-	req.checkBody('password', 'Password field is required').notEmpty();
 	const errors = req.validationErrors();
 
 	if (errors) {
@@ -120,8 +119,8 @@ exports.update = (req, res, next) => {
 };
 
 exports.destroy = (req, res, next) => {
-	const { id } = req.params;
-	User.findByIdAndDelete(id)
+	const { id } = req.body;
+	User.remove({ _id: id })
 		.then(() => {
 			req.flash('success', 'User Deleted');
 			res.redirect('/users');
