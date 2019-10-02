@@ -42,8 +42,8 @@ exports.fixtures = (req, res, next) => {
 		.lean()
 		.then((matches) => {
 			const fixtures = showFixturesNoButtons(matches);
-			res.render('results/index', {
-				title: 'Results',
+			res.render('fixtures', {
+				title: 'Fixtures',
 				fixtures,
 			})
 		})
