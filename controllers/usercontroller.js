@@ -108,7 +108,7 @@ exports.update = (req, res, next) => {
 			username,
 			password,
 		};
-		// TODO - validation
+		
 		User.updateUserAsync(id, userData)
 			.then(() => {
 				req.flash('success', 'User Updated');
