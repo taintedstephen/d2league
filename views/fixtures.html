@@ -1,7 +1,7 @@
 {{#fixtures}}
 	<div class="fixture-week">
 		<div class="fixture-week__week">
-			<b>Week {{week}}</b>
+			<b>Week {{week}}: {{ weekString }}</b>
 		</div>
 		{{#fixtures}}
 			<div class="fixture">
@@ -20,5 +20,7 @@
 	</div>
 {{/fixtures}}
 {{^fixtures}}
-	<p>No matches scheduled yet.</p>
+	<div class="content-page">
+		<p>No matches scheduled yet.</p>
+	</div>
 {{/fixtures}}
