@@ -6,7 +6,7 @@ const { showFixturesNoButtons } = require('../lib/fixtures');
 
 exports.index = (req, res, next) => {
 	Promise.all([
-		Player.find({})
+		Player.find({ deleted: false })
 			.lean(),
 		Match.find({ hasResult: true })
 			.lean(),
