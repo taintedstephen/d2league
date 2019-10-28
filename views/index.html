@@ -1,7 +1,6 @@
 <nav class="mobile-nav">
 	<span class="mobile-nav-button mobile-nav-button--active" data-target="">Points</span>
 	<span class="mobile-nav-button" data-target="body--kd">K:D</span>
-	<span class="mobile-nav-button" data-target="body--wdl">W:D:L</span>
 	<span class="mobile-nav-button" data-target="body--form">Form</span>
 </nav>
 <div class="league-table">
@@ -55,7 +54,7 @@
 				if (!$(this).hasClass("mobile-nav-button--active")) {
 					$(".mobile-nav-button--active").removeClass("mobile-nav-button--active");
 					$(this).addClass("mobile-nav-button--active");
-					$("body").removeClass("body--kd body--wdl body--form");
+					$("body").removeClass("body--kd body--form");
 					$("body").addClass($(this).data("target"));
 				}
 			})

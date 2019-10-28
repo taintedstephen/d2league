@@ -25,12 +25,21 @@ body {
 	color: #231f20;
 	-webkit-font-smoothing: antialiased;
 	-moz-osx-font-smoothing: greyscale;
-	min-height: 100vh;
+}
+
+.background {
 	background-image: url(../images/bg.jpg);
 	background-size: cover;
 	background-position: center center;
 	background-repeat: no-repeat;
-	background-attachment: fixed;
+	position: fixed;
+	top: 0;
+	left: 0;
+	bottom: 0;
+	right: 0;
+	z-index: -1;
+	width: 100%;
+	height: 100%;
 }
 
 img {
@@ -286,20 +295,14 @@ tr:hover td {
 	.th-kills,
 	.th-deaths,
 	.th-kd,
-	.th-form,
-	.th-wins,
-	.th-draws,
-	.th-losses {
+	.th-form {
 		display: none;
 	}
 
 	.td-kills,
 	.td-deaths,
 	.td-kd,
-	.td-form,
-	.td-wins,
-	.td-draws,
-	.td-losses {
+	.td-form {
 		display: none;
 	}
 
@@ -312,11 +315,21 @@ tr:hover td {
 	}
 
 	.body--kd .th-points,
-	.body--wdl .th-points,
-	.body--form .th-points,
 	.body--kd .td-points,
-	.body--wdl .td-points,
-	.body--form .td-points {
+	.body--form .th-points,
+	.body--form .td-points,
+	.body--kd .th-wins,
+	.body--kd .th-draws,
+	.body--kd .th-losses,
+	.body--kd .td-wins,
+	.body--kd .td-draws,
+	.body--kd .td-losses,
+	.body--form .th-wins,
+	.body--form .th-draws,
+	.body--form .th-losses,
+	.body--form .td-wins,
+	.body--form .td-draws,
+	.body--form .td-losses {
 		display: none;
 	}
 
@@ -329,15 +342,6 @@ tr:hover td {
 		display: table-cell;
 	}
 
-	.body--wdl .th-wins,
-	.body--wdl .th-draws,
-	.body--wdl .th-losses,
-	.body--wdl .td-wins,
-	.body--wdl .td-draws,
-	.body--wdl .td-losses {
-		display: table-cell;
-	}
-
 	.body--form .th-form,
 	.body--form .td-form {
 		display: table-cell;
@@ -345,7 +349,7 @@ tr:hover td {
 
 	.mobile-nav-button {
 		display: inline-block;
-		width: 25%;
+		width: 33.333%;
 		box-sizing: border-box;
 		padding: 1rem;
 		background-color: rgba(0, 0, 0, 0.6);
