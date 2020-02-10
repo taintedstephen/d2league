@@ -9,4 +9,7 @@ $(document).ready(function() {
 		var op = $(this).find('option:selected').text();
 		$(this).parent("span").find(".select-label").html(op);
 	});
+	$(".fixture-week__accordian .fixture-week__week").on("click", function() {
+		$(this).closest(".fixture-week__accordian").toggleClass("fixture-week--active");
+	});
 })

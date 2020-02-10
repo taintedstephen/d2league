@@ -1,22 +1,24 @@
 {{#fixtures}}
-	<div class="fixture-week">
+	<div class="fixture-week fixture-week__accordian{{#thisWeek}} fixture-week--active{{/thisWeek}}">
 		<div class="fixture-week__week">
-			<b>Week {{week}}<!--: {{ weekString }}--></b>
+			<b>Week {{week}}: {{ weekString }}</b>
 		</div>
-		{{#fixtures}}
-			<div class="fixture">
-				<div class="fixture-player{{homePlayerClass}}">
-					{{ homePlayer.psn }}
-					{{{ homeScoreHtml }}}
+		<div class="fixture-week__content">
+			{{#fixtures}}
+				<div class="fixture">
+					<div class="fixture-player{{homePlayerClass}}">
+						{{ homePlayer.psn }}
+						{{{ homeScoreHtml }}}
+					</div>
+					<div class="fixture-vs">vs</div>
+					<div class="fixture-player{{awayPlayerClass}}">
+						{{{ awayScoreHtml }}}
+						{{ awayPlayer.psn }}
+					</div>
+					{{{ noteHtml }}}
 				</div>
-				<div class="fixture-vs">vs</div>
-				<div class="fixture-player{{awayPlayerClass}}">
-					{{{ awayScoreHtml }}}
-					{{ awayPlayer.psn }}
-				</div>
-				{{{ noteHtml }}}
-			</div>
-		{{/fixtures}}
+			{{/fixtures}}
+		</div>
 	</div>
 {{/fixtures}}
 {{^fixtures}}

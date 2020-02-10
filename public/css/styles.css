@@ -1036,6 +1036,11 @@ table.dataTable td {
 	color: #ffffff;
 }
 
+.content-page a {
+	text-decoration: underline;
+	color: #ffffff;
+}
+
 .content-page p:last-child {
 	margin-bottom: 0;
 }
@@ -1169,4 +1174,40 @@ button,
 button:hover,
 .button:hover {
 	background-color: #000000;
+}
+
+.fixture-week__accordian .fixture-week__content {
+	display: none;
+}
+
+.fixture-week__accordian.fixture-week--active .fixture-week__content {
+	display: block;
+}
+
+.fixture-week__accordian .fixture-week__week {
+	cursor: pointer;
+	user-select: none;
+}
+
+.fixture-week__accordian .fixture-week__week b {
+	position: relative;
+	padding-right: 30px;
+}
+
+.fixture-week__accordian .fixture-week__week b:after {
+	width: 0px;
+	height: 0px;
+	top: 50%;
+	right: 0;
+	position: absolute;
+	content: " ";
+	border: 7px solid transparent;
+	border-top-color: #c62b29;
+	margin-top: -4px;
+}
+
+.fixture-week__accordian.fixture-week--active .fixture-week__week b:after {
+	border-top-color: transparent;
+	border-bottom-color: #c62b29;
+	margin-top: -10px;
 }

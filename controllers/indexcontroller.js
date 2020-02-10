@@ -29,7 +29,7 @@ exports.index = (req, res, next) => {
 				i += 1;
 			});
 			res.render('index', {
-				title: 'PhRe PVP League Table',
+				title: 'Dan\'s 1v1 League Season 2 - Table',
 				table,
 			});
 		})
@@ -43,7 +43,7 @@ exports.fixtures = (req, res, next) => {
 		.then((matches) => {
 			const fixtures = showFixturesNoButtons(matches);
 			res.render('fixtures', {
-				title: 'Fixtures',
+				title: 'Dan\'s 1v1 League Season 2 - Fixtures',
 				fixtures,
 			})
 		})
@@ -52,13 +52,13 @@ exports.fixtures = (req, res, next) => {
 
 exports.rules = (req, res) => {
 	res.render('rules', {
-		title: 'Rules',
+		title: 'Dan\'s 1v1 League Season 2 - Rules',
 	});
 };
 
 exports.seasonOne = (req, res) => {
 	res.render('history/season-one', {
-		title: 'Season One Review',
+		title: 'Dan\'s 1v1 League Season 2 - Season One Review',
 	});
 };
 
