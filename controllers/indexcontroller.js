@@ -56,6 +56,12 @@ exports.rules = (req, res) => {
 	});
 };
 
+exports.seasonOne = (req, res) => {
+	res.render('history/season-one', {
+		title: 'Season One Review',
+	});
+};
+
 exports.login = (req, res) => {
 	res.render('users/login', {
 		title: 'Login',
