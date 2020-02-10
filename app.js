@@ -112,6 +112,15 @@ app.use((req, res, next) => {
 	next(err);
 });
 
+if (app.get('env') !== 'development') {
+	app.use((req, res, next) => {
+		if (req.headers['x-forwarded-proto'] === 'http') {
+			return res.redirect(`https://${req.get('host')}${req.url}`);
+		}
+		return next();
+	});
+}
+
 // error handlers
 
 // development error handler
