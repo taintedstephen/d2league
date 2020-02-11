@@ -43,7 +43,7 @@ const getPlayerId = (psn) => {
 		request(options, (err, response) => {
 			if (err) reject(err);
 			try {
-				console.log(response);
+				console.log(response.body);
 				const info = JSON.parse(response.body);
 				resolve(info.Response[0].membershipId);
 			} catch (e) {
