@@ -215,6 +215,10 @@ td {
 	transition: background-color 0.25s;
 }
 
+td a {
+	color: inherit;
+}
+
 tr:nth-child(2n+2) td {
 	background-color: rgba(0, 0, 0, 0.65);
 }
@@ -412,6 +416,10 @@ tr:hover td {
 	justify-content: center;
 	flex-wrap: wrap;
 	padding: 0 0 1.5rem;
+}
+
+.fixture a {
+	color: #ffffff;
 }
 
 .fixture-vs {

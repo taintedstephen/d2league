@@ -24,7 +24,7 @@
 			{{#table}}
 				<tr class="tr-rank-{{ rank }}">
 					<td class="td-rank">{{ rank }}</td>
-					<td class="td-name">{{ psn }}</td>
+					<td class="td-name"><a href="/player/{{ psn }}">{{ psn }}</a></td>
 					<td class="td-played">{{ played }}</td>
 					<td class="td-wins">{{ won }}</td>
 					<td class="td-draws">{{ drawn }}</td>
@@ -33,7 +33,7 @@
 					<td class="td-deaths">{{ deaths }}</td>
 					<td class="td-kd">{{ diff }}</td>
 					<td class="td-form">
-						<div class="form"><!-- TO DO -->
+						<div class="form">
 							{{{ form }}}
 						</div>
 					</td>

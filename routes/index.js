@@ -8,5 +8,6 @@ router.get('/fixtures', IndexController.fixtures);
 router.get('/rules', IndexController.rules);
 router.get('/season-1', IndexController.seasonOne);
 router.get('/login', UserController.login);
+router.get('/player/:psn', IndexController.viewPlayer);
 
 module.exports = router;

@@ -67,3 +67,28 @@ exports.login = (req, res) => {
 		title: 'Login',
 	});
 };
+
+exports.viewPlayer = (req, res, next) => {
+	const { psn } = req.params;
+	Player.findOne({ deleted: false, psn })
+		.lean()
+		.then((player) => {
+			if (!player) throw new Error('No such player found');
+			return Match.find({})
+				.or([
+					{ homePlayer: player._id },
+					{ awayPlayer: player._id },
+				])
+				.populate('homePlayer awayPlayer')
+				.lean();
+		})
+		.then((matches) => {
+			const fixtures = showFixturesNoButtons(matches);
+			res.render('playerfixtures', {
+				title: `Dan\'s 1v1 League Season 2 - ${psn}`,
+				fixtures,
+				psn,
+			});
+		})
+		.catch(err => next(err));
+};
