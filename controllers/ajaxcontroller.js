@@ -43,10 +43,10 @@ const getPlayerId = (psn) => {
 		request(options, (err, response) => {
 			if (err) reject(err);
 			try {
+				console.log(response);
 				const info = JSON.parse(response.body);
 				resolve(info.Response[0].membershipId);
 			} catch (e) {
-				console.log("ID");
 				console.log(e);
 				reject('Failed to decode JSON');
 			}
@@ -69,7 +69,6 @@ const fetchStats = (playerId) => {
 				const info = JSON.parse(response.body);
 				resolve(info);
 			} catch (e) {
-				console.log("Stats");
 				console.log(e);
 				reject('Failed to decode JSON');
 			}
