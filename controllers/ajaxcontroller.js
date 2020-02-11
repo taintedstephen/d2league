@@ -25,7 +25,10 @@ exports.getPvpStats = (req, res, next) => {
 		.then((stats) => {
 			res.json(stats.Response.allPvP.allTime);
 		})
-		.catch(err => next(err));
+		.catch((err) => {
+			console.log(err);
+			next(err)
+		});
 };
 
 const getPlayerId = (psn) => {
@@ -42,27 +45,6 @@ const getPlayerId = (psn) => {
 			try {
 				const info = JSON.parse(response.body);
 				resolve(info.Response[0].membershipId);
-			} catch (e) {
-				reject('Failed to decode JSON');
-			}
-		});
-	});
-};
-
-const fetchCharacterIds = (id) => {
-	return new Promise((resolve, reject) => {
-		const url = `${endPoint}${membershipType}/Profile/${id}/?components=100,200,900`;
-		const options = {
-			url,
-			headers: {
-				'X-API-Key': apiKey
-			},
-		};
-		request(options, (err, response) => {
-			if (err) reject(err);
-			try {
-				const info = JSON.parse(response.body);
-				resolve(info.Response.profile.data.characterIds);
 			} catch (e) {
 				reject('Failed to decode JSON');
 			}
