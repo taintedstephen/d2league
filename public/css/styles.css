@@ -1049,6 +1049,10 @@ table.dataTable td {
 	color: #ffffff;
 }
 
+.content-page a.button {
+	text-decoration: none;
+}
+
 .content-page p:last-child {
 	margin-bottom: 0;
 }
@@ -1218,4 +1222,36 @@ button:hover,
 	border-top-color: transparent;
 	border-bottom-color: #c62b29;
 	margin-top: -10px;
+}
+
+.divisions {
+
+}
+
+.division {
+	background: rgba(0, 0, 0, 0.8);
+	padding: 30px;
+	margin-top: 2px;
+}
+
+.division__name {
+	color: #ffffff;
+	font-size: 1.5rem;
+	padding-bottom: 1rem;
+	display: flex;
+	flex-direction: row;
+	justify-content: space-between;
+}
+
+.division__players {
+	border: 1px solid #ffffff;
+	padding: 1rem;
+}
+
+.division__player {
+	border: 1px solid #ffffff;
+	margin-bottom: 4px;
+	color: #ffffff;
+	padding: 10px;
+	cursor: move;
 }

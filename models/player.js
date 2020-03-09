@@ -7,6 +7,10 @@ const PlayerSchema = mongoose.Schema({
 	name: {
 		type: String,
 	},
+	division: {
+		type: mongoose.Schema.Types.ObjectId,
+		ref: 'Division',
+	},
 	deleted: {
 		type: Boolean,
 		default: false,

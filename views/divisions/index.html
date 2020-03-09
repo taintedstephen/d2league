@@ -1,0 +1,98 @@
+<div class="content-page">
+	<div class="page-title">
+		<h1>Divisions</h1>
+		<a href="/divisions/new" class="button">New Division</a>
+	</div>
+	<p>Add and edit the divisions and the players in each.</p>
+</div>
+<div class="divisions">
+{{#divisions}}
+	<div class="division" data-id="{{ _id }}">
+		<div class="division__name">
+			{{ name }}
+			<div class="division-name__actions">
+				<a href="/divisions/edit/{{ _id }}" class="button">Edit</a>
+			</div>
+		</div>
+		<div class="division__players ui-sortable" id="{{ _id }}">
+			{{#players}}
+				<div class="division__player ui-sortable-handle" data-id="{{ _id }}">{{psn}}</div>
+			{{/players}}
+		</div>
+	</div>
+{{/divisions}}
+{{^divisions}}
+<div class="content-page">
+	<p>No divisions set up yet. <a href="/divisions/new">Create one</a></p>
+</div>
+{{/divisions}}
+</div>
+
+<div class="division" data-id="unallocated">
+	<div class="division__name">Unallocated players</div>
+	<div class="division__players ui-sortable" id="unallocated">
+		{{#players}}
+			<div class="division__player ui-sortable-handle" data-id="{{ _id }}">{{psn}}</div>
+		{{/players}}
+	</div>
+</div>
+
+<script type="text/javascript">
+	$(document).ready(function() {
+		$.ajaxSetup({
+            headers: { 'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content') }
+        });
+		var throttled = false;
+		var elements = [
+			{{#divisions}}
+				"#{{_id}}",
+			{{/divisions}}
+			"#unallocated",
+		];
+		$(elements.join(',')).sortable({
+			connectWith: '.ui-sortable',
+			update: function() {
+				if (!throttled) {
+					throttled = true;
+					setTimeout(updateSortOrder, 250);
+				}
+			}
+		});
+		function updateSortOrder() {
+			throttled = false;
+			var divisions = [];
+			var players = [];
+			$(".division").each(function() {
+				var ps = [];
+				var id = $(this).data("id");
+				if (id === 'unallocated') {
+					id = null;
+				}
+				$(this).find(".division__player").each(function() {
+					var pId = $(this).data("id");
+					ps.push(pId);
+					players.push({
+						id: pId,
+						division: id,
+					});
+				})
+				divisions.push({
+					id: id,
+					players: ps,
+				});
+			});
+			var data = JSON.stringify({
+				divisions: divisions,
+				players: players,
+			});
+			$.post('/divisions/players', { data: data }, 'json')
+				.done(function() {
+					console.log("OK");
+				})
+				.fail(function() {
+					console.log("Error");
+					alert("Unable to save divisions");
+				});
+		}
+	});
+</script>

@@ -20,6 +20,7 @@ const routes = require('./routes/index');
 const users = require('./routes/users');
 const players = require('./routes/players');
 const results = require('./routes/results');
+const divisions = require('./routes/divisions');
 const ajax = require('./routes/ajax');
 
 const app = express();
@@ -105,6 +106,7 @@ app.use('/', routes);
 app.use('/users', users);
 app.use('/players', players);
 app.use('/results', results);
+app.use('/divisions', divisions);
 app.use('/ajax', ajax);
 
 // catch 404 and forward to error handler

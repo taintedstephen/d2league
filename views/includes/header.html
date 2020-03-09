@@ -5,7 +5,7 @@
 			<a href="/">Table</a>
 		</li>
 		<li>
-			<a href="/fixtures">Fixtures</a>
+			<a href="/fixtures">Fixtures &amp; Results</a>
 		</li>
 		<li>
 			<a href="/rules">Rules</a>
@@ -13,27 +13,32 @@
 		<li>
 			<a href="/season-1">Season 1</a>
 		</li>
+	</ul>
 
 		{{#user}}
-
-			<li>
-				<a href="/results">Results</a>
-			</li>
-			<li>
-				<a href="/players">Players</a>
-			</li>
-			<li>
-				<a href="/users">Users</a>
-			</li>
-			<li>
-				<form action="/users/logout" method="post">
-					{{> token }}
-					<button class="button">Log Out</button>
-				</form>
-			</li>
-
+			<p>ADMIN</p>
+				<ul>
+				<li>
+					<a href="/results">Fixtures &amp; Results</a>
+				</li>
+				<li>
+					<a href="/divisions">Divisions</a>
+				</li>
+				<li>
+					<a href="/players">Players</a>
+				</li>
+				<li>
+					<a href="/users">Users</a>
+				</li>
+				<li>
+					<form action="/users/logout" method="post">
+						{{> token }}
+						<button class="button">Log Out</button>
+					</form>
+				</li>
+			</ul>
 		{{/user}}
-	</ul>
+
 </div>
 <div class="page">
 	<div class="container">

@@ -9,6 +9,10 @@ const MatchSchema = mongoose.Schema({
 		type: mongoose.Schema.Types.ObjectId,
 		ref: 'Player',
 	},
+	division: {
+		type: mongoose.Schema.Types.ObjectId,
+		ref: 'Division',
+	},
 	homeScore: {
 		type: Number,
 	},

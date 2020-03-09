@@ -1,0 +1,16 @@
+<div class="content-page">
+	<div class="page-title">
+		<h1>New Division</h1>
+	</div>
+
+	<form action="/divisions/create" method="post">
+		{{> token }}
+		<div class="field">
+			<label for="name">Name</label>
+			<input type="text" name="name" value="{{ name }}" />
+		</div>
+		<div class="field">
+			<button class="button">Create Division</button>
+		</div>
+	</form>
+</div>
