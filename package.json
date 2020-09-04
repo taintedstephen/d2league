@@ -23,7 +23,7 @@
     "hogan-express": "0.5.2",
     "kerberos": "0.0.23",
     "moment": "^2.23.0",
-    "mongodb": "^2.2.35",
+    "mongodb": "^3.1.13",
     "mongoose": "^4.13.20",
     "morgan": "^1.9.1",
     "passport": "^0.4.1",
